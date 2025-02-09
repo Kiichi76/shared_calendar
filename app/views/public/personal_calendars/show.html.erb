@@ -1,8 +1,14 @@
-<%= @calendar.title %>
+<p>タイトル</p>
+<%= @calendar.title %></br>
 
+<p>詳細</p>
 <%= @calendar.body %>
 
-<%= @calendar.start_time %>
+<p>日にち</p>
+<%= @calendar.start_time.day %>日
+
+<p>時間</p>
+<%= @calendar.start_time.strftime( "%H:%M" ) %>
 
 <%= link_to "編集", edit_personal_calendar_path(@calendar) %>
 
