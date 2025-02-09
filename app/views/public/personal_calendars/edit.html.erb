@@ -1,0 +1,12 @@
+<%= form_with model: @calendar, url: personal_calendar_path(@calendar), method: :patch do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time %>
+
+    <%= f.submit "変更" %>
+<% end %>

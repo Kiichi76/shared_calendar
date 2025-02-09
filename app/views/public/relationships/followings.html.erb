@@ -1,0 +1,8 @@
+<p><%= @user.name %>さんがフォローしている人</p>
+
+<% if @users.exists? %>
+	<%= render "/relationships/index", users: @users %>
+<% else %>
+	<p>フォローしているユーザーは存在しません</p>
+<% end %>
+

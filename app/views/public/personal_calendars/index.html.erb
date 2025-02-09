@@ -1,0 +1,20 @@
+<%= form_with model: @calendar, url: personal_calendars_path, method: :post do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time %>
+
+    <%= f.submit "作成" %>
+<% end %>
+
+<%= month_calendar events: @calendars do |date, events| %>
+    <%= date.day %>
+    
+    <% events.each do |event| %>
+        <%= link_to event.title, personal_calendar_path(event) %>
+    <% end %>
+<% end %>

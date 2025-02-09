@@ -1,0 +1,9 @@
+<%= @calendar.title %>
+
+<%= @calendar.body %>
+
+<%= @calendar.start_time %>
+
+<%= link_to "編集", edit_personal_calendar_path(@calendar) %>
+
+<%= link_to "削除", personal_calendar_path(@calendar), method: :delete,"date-confirm" => "本当に削除しますか？" %>
