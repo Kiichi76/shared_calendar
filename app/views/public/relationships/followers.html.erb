@@ -1,7 +1,19 @@
-<p><%= @user.name %>さんをフォローしている人</p>
-
-<% if @users.exists? %>
-	<%= render "/relationships/index", users: @users %>
-<% else %>
-	<p>フォローされているユーザーは存在しません</p>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<p><%= @user.name %>さんをフォローしている人</p>
+		</div>
+	</div>
+	
+	<% if @users.exists? %>
+		<div class="row">
+			<%= render "/relationships/index", users: @users %>
+		</div>
+	<% else %>
+		<div class="row">
+			<div class="col">
+				<p>フォローされているユーザーは存在しません</p>
+			</div>
+		</div>
+	<% end %>
+</div>

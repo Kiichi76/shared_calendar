@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-0 col-md-3">
+		<div class="col-0 col-md-3"> 
 		</div>
 		<div class="col-12 col-md-9">
 			<div class="text-center text-md-left">
@@ -49,7 +49,7 @@
 		<% if @user != current_user %>		
 			<% if current_user.following?(@user) %>
 				<div class="col-6">
-					<%= link_to "フォロー解除", user_relationships_path(@user), method: :delete, class: "btn btn-success"%>
+					<%= link_to "フォロー解除", user_relationships_path(@user), method: :delete, class: "btn btn-success" %>
 				</div>
 			<% else %>
 				<div class="col-6">

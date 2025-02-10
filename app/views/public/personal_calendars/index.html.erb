@@ -1,20 +1,36 @@
-<%= form_with model: @calendar, url: personal_calendars_path, method: :post do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<div class="container">
+      
+    <%= form_with model: @calendar, url: personal_calendars_path, method: :post do |f| %>
+        <div class="row"> 
+                <%= f.label :title %>
+            <div class="col-12">
+                <%= f.text_field :title %>
+            </div>
+                <%= f.label :body %>
+            <div class="col-12">
+                <%= f.text_area :body %>
+            </div>
+            <div class="col-12">
+                <p>開始日</p>
+            </div>
+            <div class="col-12">
+                <%= f.datetime_select :start_time %>
+            </div>
 
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
-
-    <%= f.submit "作成" %>
-<% end %>
-
-<%= month_calendar events: @calendars do |date, events| %>
-    <%= date.day %>
-    
-    <% events.each do |event| %>
-        <%= link_to event.title, personal_calendar_path(event) %>
+            <div class="col-12">
+                <%= f.submit "作成" %>
+            </div>
+        </dvi>
     <% end %>
-<% end %>
+    <div class="row">
+        <div class="col-12">
+            <%= month_calendar events: @calendars do |date, events| %>  
+                <%= date.day %>
+                            
+                <% events.each do |event| %>
+                    <%= link_to event.title, personal_calendar_path(event) %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -1,15 +1,56 @@
-<p>タイトル</p>
-<%= @calendar.title %></br>
+<div class="container">
+    <div class="row">
+        <div class="col-0 col-md-3 col-lg-2">
+        </div>
+        <div class="col-12 col-md-3 col-lg-2">
+            <p class="text-center text-md-left">タイトル</p>
+        </div>
+        <div class="col-12 col-md-4 col-lg-8">
+			<p class="text-center text-md-left">
+                <%= @calendar.title %>
+            </p>
+        </div>
 
-<p>詳細</p>
-<%= @calendar.body %>
+        <div class="col-0 col-md-3 col-lg-2">
+        </div>
+        <div class="col-12 col-md-3 col-lg-2">
+            <p class="text-center text-md-left">詳細</p>
+        </div>
+        <div class="col-12 col-md-4 col-lg-8">
+			<p class="text-center text-md-left">
+                <%= @calendar.body %>
+            </p>
+        </div>
 
-<p>日にち</p>
-<%= @calendar.start_time.day %>日
+        <div class="col-0 col-md-3 col-lg-2">
+        </div>
+        <div class="col-12 col-md-3 col-lg-2">
+            <p class="text-center text-md-left">日にち</p>
+        </div>
+        <div class="col-12 col-md-4 col-lg-8">
+			<p class="text-center text-md-left">
+                <%= @calendar.start_time.day %>日
+            </p>
+        </div>
 
-<p>時間</p>
-<%= @calendar.start_time.strftime( "%H:%M" ) %>
+        <div class="col-0 col-md-3 col-lg-2">
+        </div>
+        <div class="col-12 col-md-3 col-lg-2">
+            <p class="text-center text-md-left">時間</p>
+        </div>
+        <div class="col-12 col-md-4 col-lg-8">
+            <p class="text-center text-md-left">
+                <%= @calendar.start_time.strftime( "%H:%M" ) %>
+            </p>
+        </div>
 
-<%= link_to "編集", edit_personal_calendar_path(@calendar) %>
-
-<%= link_to "削除", personal_calendar_path(@calendar), method: :delete,"date-confirm" => "本当に削除しますか？" %>
+        <div class="col-0 col-md-3 col-lg-2">
+		</div>
+        <div class="col-12 col-md-2 col-lg-2">
+            <%= link_to "編集", edit_personal_calendar_path(@calendar), class: "btn btn-primary" %>
+        </div>
+        <div class="col-12 col-md-7 col-lg-8">
+            <%= link_to "削除", personal_calendar_path(@calendar), method: :delete,"date-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+        </div>
+    </div>
+</div>
