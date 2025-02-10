@@ -1,0 +1,25 @@
+<% if admin_signed_in? %>
+    <% if request.fullpath.include? "/admin" %>
+    <% else %>
+        <li>
+            <%= link_to "マイページ", user_path(current_user.id) %>
+        </li>
+        <li>
+            <%= link_to "カレンダー", personal_calendars_path %>
+        </li>
+    <% end %>
+<% elsif user_signed_in? %>
+    <li>
+        <%= link_to "マイページ", user_path(current_user.id) %>
+    </li>
+    <li>
+        <%= link_to "カレンダー", personal_calendars_path %>
+    </li>
+<% else %>
+    <li>
+        <%= link_to "トップページ", root_path %>
+    </li>
+    <li>
+        <%= link_to "about", about_path %>
+    </li>
+<% end %>

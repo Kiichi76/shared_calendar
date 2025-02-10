@@ -1,35 +1,92 @@
-<% if @user.profile_image.attached? %>
-	<%= image_tag @user.profile_image, size: "40x40" %>
-<% else %>
-	<%= image_tag "no_image", size: "40x40" %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-0 col-md-3">
+		</div>
+		<div class="col-12 col-md-9">
+			<div class="text-center text-md-left">
+				<% if @user.profile_image.attached? %>
+					<%= image_tag @user.profile_image, size: "120x120" %>
+				<% else %>
+					<%= image_tag "no_image", size: "120x120" %>
+				<% end %>
+			</div>
+		</div>
 
-<p>表示名</p>
-<%= @user.handle %>
+		<div class="col-0 col-md-3 col-lg-2">
+		</div>
+		<div class="col-12 col-md-3 col-lg-2">
+			<p class="text-center text-md-left">表示名</p>	
+		</div>
+		<div class="col-12 col-md-4 col-lg-8">
+			<p class="text-center text-md-left">
+				<%= @user.handle %>
+			</p>
+		</div>
 
-<p>フォロー数</p>
-<%= link_to @user.followings.count, user_followings_path(@user) %>
+		<div class="col-0 col-md-3 col-lg-2">
+		</div>
+		<div class="col-12 col-md-3 col-lg-2">
+			<p class="text-center text-md-left">フォロー数</p>
+		</div>
+		<div class="col-12 col-md-4 col-lg-8">
+			<p class="text-center text-md-left">
+				<%= link_to @user.followings.count, user_followings_path(@user)  %>
+			</p>
+		</div>
 
-<p>フォロワー数</p>
-<%= link_to @user.followers.count, user_followers_path(@user) %>
+		<div class="col-0 col-md-3 col-lg-2">
+		</div>
+		<div class="col-12 col-md-3 col-lg-2">
+			<p class="text-center text-md-left">フォロワー数</p>
+		</div>
+		<div class="col-12 col-md-4 col-lg-8">
+			<p class="text-center text-md-left">
+				<%= link_to @user.followers.count, user_followers_path(@user) %>
+			</p>
+		</div>
 
-</br>
+		
+		<% if @user != current_user %>		
+			<% if current_user.following?(@user) %>
+				<div class="col-6">
+					<%= link_to "フォロー解除", user_relationships_path(@user), method: :delete, class: "btn btn-success"%>
+				</div>
+			<% else %>
+				<div class="col-6">
+					<%= link_to "フォロー" , user_relationships_path(@user), method: :post, class: "btn btn-primary" %>
+				</div>
+			<% end %>
+		<% else %>
+			<div class="col-0 col-md-3 col-lg-2">
+			</div>
+			<div class="col-12 col-md-3 col-lg-2">
+				<p class="text-center text-md-left">名前</p>
+			</div>
+			<div class="col-12 col-md-4 col-lg-8">
+				<p class="text-center text-md-left">
+					<%= @user.name %>
+				</p>
+			</div>
 
-<% if @user != current_user %>
-	<% if current_user.following?(@user) %>
-		<%= link_to "フォロー解除", user_relationships_path(@user), method: :delete %>
-	<% else %>
-		<%= link_to "フォロー" , user_relationships_path(@user), method: :post %>
-	<% end %>
-<% else %>
-	<p>名前</p>
-	<%= @user.name %>
+			<div class="col-0 col-md-3 col-lg-2">
+			</div>
+			<div class="col-12 col-md-3 col-lg-2">
+				<p class="text-center text-md-left">メールアドレス</p>
+			</div>
+			<div class="col-12 col-md-4 col-lg-8">
+				<p class="text-center text-md-left">
+					<%= @user.email %>
+				</p>
+			</div>
 
-	<p>メールアドレス</p>
-	<%= @user.email %>
-	
-	</br>
-	
-	<%= link_to "編集", edit_user_path(@user) %>
-	<%= link_to "退会", user_path(@user), method: :delete, "date-confirm" => "本当に退会しますか?" %>
-<% end %>
+			<div class="col-0 col-md-3 col-lg-2">
+			</div>
+			<div class="col-12 col-md-2 col-lg-2">
+				<%= link_to "編集", edit_user_path(@user), class: "btn btn-primary" %>
+			</div>
+			<div class="col-12 col-md-7 col-lg-8">
+				<%= link_to "退会", user_path(@user), method: :delete, "date-confirm" => "本当に退会しますか?", class: "btn btn-danger" %>
+			</div>
+		<% end %>
+	</div>
+</div>
