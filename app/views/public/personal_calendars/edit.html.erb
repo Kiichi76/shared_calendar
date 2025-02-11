@@ -1,12 +1,50 @@
+<div class="container">
     <%= form_with model: @calendar, url: personal_calendar_path(@calendar), method: :patch do |f| %>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
+        <div class="row">
+            <div class="col-0 col-md-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-2">
+				<p class="text-center text-md-left">
+                    <%= f.label :title %>
+            	</p>
+			</div>
+			<div class="col-12 col-md-7 col-lg-8">
+                <p class="text-center text-md-left">
+                    <%= f.text_field :title %>
+                </p>
+            </div>
 
-        <%= f.label :body %>
-        <%= f.text_area :body %>
+            <div class="col-0 col-md-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-2">
+				<p class="text-center text-md-left">
+                    <%= f.label :body %>
+            	</p>
+			</div>
+			<div class="col-12 col-md-7 col-lg-8">
+                <p class="text-center text-md-left">
+                    <%= f.text_area :body %>
+                </p>
+            </div>
 
-        <%= f.label :start_time %>
-        <%= f.datetime_select :start_time %>
-
-        <%= f.submit "変更" %>
+            <div class="col-0 col-md-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-2">
+				<p class="text-center text-md-left">
+                    <%= f.label :start_time %>
+            	</p>
+			</div>
+			<div class="col-12 col-md-7 col-lg-8">
+                <p class="text-center text-md-left">
+                    <%= f.datetime_select :start_time %>
+                </p>
+            </div>
+            
+            <div class="col-0 col-md-2">
+			</div>
+			<div class="col-12 col-md-10">
+                <%= f.submit "変更" %>
+            </div>
+        </div>
     <% end %>
+</div>
