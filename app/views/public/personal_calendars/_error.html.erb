@@ -1,0 +1,8 @@
+<% if calendar.errors.any? %>
+  <h4>エラーが発生しました</h4>
+  <ul>
+    <% calendar.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>

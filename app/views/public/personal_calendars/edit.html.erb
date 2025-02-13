@@ -1,5 +1,14 @@
 <div class="container">
     <%= form_with model: @calendar, url: personal_calendar_path(@calendar), method: :patch do |f| %>
+        <% if @calendar.errors.any? %>
+            <h4>エラーが発生しました</h4>
+            <ul>
+                <% @calendar.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        <% end %>
+        
         <div class="row">
             <div class="col-0 col-md-2">
             </div>

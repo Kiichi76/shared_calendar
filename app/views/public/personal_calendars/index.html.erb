@@ -1,6 +1,15 @@
 <div class="container">
       
     <%= form_with model: @calendar, url: personal_calendars_path, method: :post do |f| %>
+        <% if @calendar.errors.any? %>
+            <h4>エラーが発生しました</h4>
+            <ul>
+                <% @calendar.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        <% end %>
+
         <div class="row"> 
                 <%= f.label :title %>
             <div class="col-12">

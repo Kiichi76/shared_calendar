@@ -2,18 +2,30 @@
     <% if request.fullpath.include? "/admin" %>
     <% else %>
         <li>
+            <%= link_to "about", about_path %>
+        </li>
+        <li>
             <%= link_to "マイページ", user_path(current_user.id) %>
         </li>
         <li>
             <%= link_to "カレンダー", personal_calendars_path %>
         </li>
+        <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
+        </li>
     <% end %>
 <% elsif user_signed_in? %>
+    <li>
+        <%= link_to "about", about_path %>
+    </li>
     <li>
         <%= link_to "マイページ", user_path(current_user.id) %>
     </li>
     <li>
         <%= link_to "カレンダー", personal_calendars_path %>
+    </li>
+    <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
     </li>
 <% else %>
     <li>
