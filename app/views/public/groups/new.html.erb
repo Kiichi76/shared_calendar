@@ -1,0 +1,7 @@
+<%= form_with model: @group, url: groups_path, method: :post do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :group_image %>
+    <%= f.file_field :group_image %>
+<% end %>

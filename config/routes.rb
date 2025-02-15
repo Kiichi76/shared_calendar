@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/homes/about" => "public/homes#about", as: "about"
 
   scope module: :public do
+    resources :groups, only: [:new, :index, :create, :show, :edit, :show, :update, :destroy]
     resources :users, only: [:show, :edit, :update, :destroy] do
       resource :relationships, only: [:create, :destroy]
         get "followings" => "relationships#followings", as: "followings"
