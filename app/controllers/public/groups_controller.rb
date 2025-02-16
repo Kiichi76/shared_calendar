@@ -6,11 +6,7 @@ class Public::GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
-    @group_user = GroupUser.new
-    @group_user.user_id = current_user.id
-    @group_user.group_id = @group.id
     if @group.save
-      @group_user.save
       redirect_to group_path(@group)
     else
       render :new
