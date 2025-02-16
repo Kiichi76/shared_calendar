@@ -1,2 +1,9 @@
-<h1>Public::Groups#edit</h1>
-<p>Find me in app/views/public/groups/edit.html.erb</p>
+<%= form_with model: @group, url: group_path(@group), method: :patch do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :group_image %>
+    <%= f.file_field :group_image %>
+
+    <%= f.submit "変更" %>
+<% end %>

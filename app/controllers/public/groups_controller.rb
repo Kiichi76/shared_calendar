@@ -5,7 +5,12 @@ class Public::GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+    @group.owner_id = current_user.id
+    @group_user = GroupUser.new
+    @group_user.user_id = current_user.id
+    @group_user.group_id = @group.id
     if @group.save
+      @group_user.save
       redirect_to group_path(@group)
     else
       render :new
@@ -14,18 +19,38 @@ class Public::GroupsController < ApplicationController
 
   def index
     user = User.find(current_user.id)
-    @groups = user.groups
+    @groups = Group.all
   end
 
   def show
+    @group = Group.find(params[:id])
+    @users = @group.users
   end
 
   def edit
+    @group = Group.find(params[:id])
   end
+
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to group_path(@group)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path
+  end
+
 
   private
 
   def group_params
-    params.require(:group).permit(:name, :group_image)
+    params.require(:group).permit(:name, :owner_id,:group_image)
   end
+
 end

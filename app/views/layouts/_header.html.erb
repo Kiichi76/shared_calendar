@@ -11,6 +11,9 @@
             <%= link_to "カレンダー", personal_calendars_path %>
         </li>
         <li>
+            <%= link_to "グループ", groups_path %>
+        </li>
+        <li>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
         </li>
     <% end %>
@@ -23,6 +26,9 @@
     </li>
     <li>
         <%= link_to "カレンダー", personal_calendars_path %>
+    </li>
+    <li>
+        <%= link_to "グループ", groups_path %>
     </li>
     <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
