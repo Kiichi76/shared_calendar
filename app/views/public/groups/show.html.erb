@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <p>グループ名</p>
+        </div>
+        <div class="col">
+            <p>メンバー</p>
+        </div>
+        <div class="col">
+            <p>グループ管理者</p>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <% if @group.group_image.attached? %>
+                <%= image_tag @group.group_image, size:"50x50" %>
+            <% else %>
+                <%= image_tag "no_image", size:"50x50" %>
+            <% end %>
+        </div>
+        <div class="col">
+            <p><%= @group.name %></p>
+        </div>
+        <div class="col">
+            <ul>
+                <% @users.each do |member| %>
+                    <li>
+                        <%= member.name %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="col">
+            <p><%= @group.owner_id %></p>
+        </div>
+        <div class="col">
+            <% if @group.owner_id == current_user.id %>
+                <%= link_to "編集", edit_group_path %>
+                <%= link_to "削除", group_path(@group), method: :delete %>
+            <% end %>
+        </div>
+    </div>
+</div>
