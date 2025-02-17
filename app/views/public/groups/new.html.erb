@@ -1,9 +1,17 @@
-<%= form_with model: @group, url: groups_path, method: :post do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<div class="container">
+    <%= form_with model: @group, url: groups_path, method: :post do |f| %>
+        <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
 
-    <%= f.label :group_image %>
-    <%= f.file_field :group_image %>
-
-    <%= f.submit "作成" %>
-<% end %>
+        <div class="form-group">
+            <%= f.label :group_image %>
+            <%= f.file_field :group_image %>
+        </div>
+        
+        <div class="form-gorup">
+            <%= f.submit "作成" %>
+        </div>
+    <% end %>
+</div>

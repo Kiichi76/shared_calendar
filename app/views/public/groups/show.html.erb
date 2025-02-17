@@ -1,43 +1,47 @@
-<table>
-    <thead>
-        <tr>
-            <th></th>
-            <th>グループ名</th>
-            <th>メンバー</th>
-            <th>グループ管理者</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <% if @group.group_image.attached? %>
-                    <%= image_tag @group.group_image, size:"50x50" %>
-                <% else %>
-                    <%= image_tag "no_image", size:"50x50" %>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <p>グループ名</p>
+        </div>
+        <div class="col">
+            <p>メンバー</p>
+        </div>
+        <div class="col">
+            <p>グループ管理者</p>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <% if @group.group_image.attached? %>
+                <%= image_tag @group.group_image, size:"50x50" %>
+            <% else %>
+                <%= image_tag "no_image", size:"50x50" %>
+            <% end %>
+        </div>
+        <div class="col">
+            <p><%= @group.name %></p>
+        </div>
+        <div class="col">
+            <ul>
+                <% @users.each do |member| %>
+                    <li>
+                        <%= member.name %>
+                    </li>
                 <% end %>
-            </td>
-            <td>
-                <%= @group.name %>
-            </td>
-            <td>
-                <ul>
-                    <% @users.each do |member| %>
-                        <li>
-                            <%= member.name %>
-                        </li>
-                    <% end %>
-                </ul>
-            </td>
-            <td>
-                <%= @group.owner_id %>
-            </td>
-            <td>
-                <% if @group.owner_id == current_user.id %>
-                    <%= link_to "編集", edit_group_path %>
-                    <%= link_to "削除", group_path(@group), method: :delete %>
-                <% end %>
-            </td>
-        </tr>
-    </tbody
-</table>
+            </ul>
+        </div>
+        <div class="col">
+            <p><%= @group.owner_id %></p>
+        </div>
+        <div class="col">
+            <% if @group.owner_id == current_user.id %>
+                <%= link_to "編集", edit_group_path %>
+                <%= link_to "削除", group_path(@group), method: :delete %>
+            <% end %>
+        </div>
+    </div>
+</div>

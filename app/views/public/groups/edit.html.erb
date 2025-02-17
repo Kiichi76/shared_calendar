@@ -1,9 +1,17 @@
-<%= form_with model: @group, url: group_path(@group), method: :patch do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<div class="container">
+    <%= form_with model: @group, url: group_path(@group), method: :patch do |f| %>
+        <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
 
-    <%= f.label :group_image %>
-    <%= f.file_field :group_image %>
+        <div class="form-group">
+            <%= f.label :group_image %>
+            <%= f.file_field :group_image %>
+        </div>
 
-    <%= f.submit "変更" %>
-<% end %>
+        <div class="form-group">
+            <%= f.submit "変更" %>
+        </div>
+    <% end %>
+</div>
