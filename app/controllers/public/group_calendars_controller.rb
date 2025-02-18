@@ -13,9 +13,16 @@ class Public::GroupCalendarsController < ApplicationController
     end
 
     def edit
+        @calendar = GroupCalendar.find(params[:id])
     end
 
     def update
+        @calendar = GroupCalendar.find(params[:id])
+        if @calendar.update(group_calendar_params)
+            redirect_to group_group_calendar_path(@calendar)
+        else
+            render :edit
+        end
     end
 
     def destroy

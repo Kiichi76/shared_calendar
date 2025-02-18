@@ -20,7 +20,6 @@ class Public::GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id]) 
-    @users = @group.users
     @calendar = GroupCalendar.new
   end
 

@@ -13,6 +13,7 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">グループ名</th>
+                <th scope="col">グループ人数</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -31,6 +32,9 @@
                         <%= link_to group_path(group) do %>
                             <%= group.name %>
                         <% end %>
+                    </td>
+                    <td>
+                        <p><%= group.group_users.count %></p>
                     </td>
                     <td>
                         <% if group.owner_id == current_user.id %>

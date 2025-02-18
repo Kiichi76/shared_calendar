@@ -26,13 +26,11 @@
             <p><%= @group.name %></p>
         </div>
         <div class="col">
-            <ul>
-                <% @users.each do |member| %>
-                    <li>
-                        <%= member.name %>
-                    </li>
-                <% end %>
-            </ul>
+            <% @group.users.each do |member| %>
+                <li>
+                    <%= member.name %>
+                </li>
+            <% end %>
         </div>
         <div class="col">
             <p><%= @group.owner_id %></p>
@@ -66,7 +64,6 @@
                             
         <% events.each do |event| %>
             <%= link_to event.title, group_group_calendar_path(@group.id, event.id) %>
-            abc
         <% end %>
     <% end %>
 </div>
