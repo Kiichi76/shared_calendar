@@ -1,0 +1,19 @@
+<div class="container">
+    <%= form_with model: @calendar, url: group_group_calendar_path(@calendar), method: :patch do |f| %>
+        <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </div>
+        <div class="form-group">
+            <%= f.label :body %>
+            <%= f.text_area :body %>
+        </div>
+        <div class="form-group">
+            <%= f.label :start_time %>
+            <%= f.datetime_select :start_time %>
+        </div>
+        <div class="form-group">
+            <%= f.submit "更新" %>
+        </div>
+    <% end %>
+</div>
