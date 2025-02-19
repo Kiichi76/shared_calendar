@@ -42,7 +42,7 @@
             <% end %>
         </div>
     </div>
-    <%= form_with model: [@group, @calendar] do |f| %>
+    <%= form_with model: @calendar, url: group_calendars_path, method: :post do |f| %>
         <div class="form-group">
             <%= f.label :title %>
             <%= f.text_field :title %>
@@ -55,15 +55,17 @@
             <%= f.label :start_time %>
             <%= f.datetime_select :start_time %>
         </div>
+        <%= f.hidden_field :group_id, value: @group.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
         <div class="form-gorup">
             <%= f.submit "追加" %>
         </div>
     <% end %>
-    <%= month_calendar events: @group.group_calendars do |date, events| %>  
+    <%= month_calendar events: @calendars do |date, events| %>  
         <%= date.day %>
                             
         <% events.each do |event| %>
-            <%= link_to event.title, group_group_calendar_path(@group.id, event.id) %>
+            <%= link_to event.title,  group_calendar_path(event) %>
         <% end %>
     <% end %>
 </div>
