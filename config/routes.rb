@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     resources :group_calendars, only: [:show, :create, :edit, :update, :destroy] do 
       resources :comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
     resources :users, only: [:show, :edit, :update, :destroy] do
       resource :relationships, only: [:create, :destroy]
