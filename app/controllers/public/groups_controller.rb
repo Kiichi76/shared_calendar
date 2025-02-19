@@ -19,7 +19,8 @@ class Public::GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id]) 
+    @group = Group.find(params[:id])
+    @calendars = @group.group_calendars 
     @calendar = GroupCalendar.new
   end
 

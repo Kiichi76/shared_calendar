@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :group_calendars
   has_many :group, through: :group_calendars
 
+  has_many :comments
+
   def follow(user)
     relationships.create(followed_id: user.id)
   end
