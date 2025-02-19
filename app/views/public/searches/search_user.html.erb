@@ -1,0 +1,22 @@
+<%= render "public/searches/search_user" %>
+
+<% @users.each do |user| %>
+    <% if user.profile_image.attached? %>
+		<%= image_tag user.profile_image, size: "120x120" %>
+	<% else %>
+		<%= image_tag "no_image", size: "120x120" %>
+	<% end %>
+    <p>表示名</p>
+    <%= user.handle %>
+    <p>フォロー数</p>
+    <%= link_to user.followings.count, user_followings_path(user)  %>
+    <p>フォロワー数</p>
+    <%= link_to user.followers.count, user_followers_path(user) %>
+    <% if user != current_user %>		
+        <% if current_user.following?(user) %>
+            <%= link_to "フォロー解除", user_relationships_path(user), method: :delete, class: "btn btn-success" %>
+        <% else %>
+            <%= link_to "フォロー" , user_relationships_path(user), method: :post, class: "btn btn-primary" %>
+        <% end %>
+	<% end %>
+<% end %>

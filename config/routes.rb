@@ -22,6 +22,8 @@ Rails.application.routes.draw do
         get "followers" => "relationships#followers", as: "followers"
     end
     resources :personal_calendars, only: [:index, :show, :edit, :create, :update, :destroy]
+    get "search_user" => "searches#search_user"
+    get "search_group" => "searches#search_group"
   end
 
   namespace :admin do
