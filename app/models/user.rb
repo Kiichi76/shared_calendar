@@ -34,5 +34,12 @@ class User < ApplicationRecord
   def following?(user)
     following.include?(user)
   end
-  
+
+  def self.looks(range, word)
+    if range == "ユーザーID"
+      @user = User.where(id: word.to_i)
+    else
+      @user = User.where("handle LIKE?", "#{word}")
+    end
+  end
 end

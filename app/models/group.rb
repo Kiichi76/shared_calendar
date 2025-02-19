@@ -11,4 +11,12 @@ class Group < ApplicationRecord
     def include_user?(user)
         group_users.exists?(user_id: user.id)
     end
+
+    def self.looks(range, word)
+        if range == "グループID"
+          @group = Group.where(id: word.to_i)
+        else
+          @group = Group.where("name LIKE?", "#{word}")
+        end
+    end
 end
