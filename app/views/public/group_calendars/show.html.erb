@@ -33,6 +33,15 @@
             </div>
         <% end %>
     </div>
+    <% if @calendar.favorited_by?(current_user) %>
+        <%= link_to group_calendar_favorites_path(@calendar), method: :delete do %>
+            ♥<%= @calendar.favorites.count %>いいね
+        <% end %>
+    <% else %>
+        <%= link_to group_calendar_favorites_path(@calendar), method: :post do %>
+            ♡<%= @calendar.favorites.count %>いいね
+        <% end %>
+    <% end %>
     <% @calendar.comments.each do |comment| %>
         <%= comment.comment %>
         <% if comment.user_id == current_user.id %>
