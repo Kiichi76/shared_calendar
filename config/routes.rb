@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :groups, only: [:new, :index, :create, :show, :edit, :show, :update, :destroy] do
+      member do 
+        get "permits"
+      end
       resource :group_users, only: [:create, :destroy]
+      resource :permits, only: [:create, :destroy]
     end
     resources :group_calendars, only: [:show, :create, :edit, :update, :destroy] do 
       resources :comments, only: [:create, :destroy]

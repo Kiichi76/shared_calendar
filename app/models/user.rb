@@ -15,13 +15,15 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   has_many :group_users
-  has_many :group, through: :group_users
+  has_many :groups, through: :group_users
 
   has_many :group_calendars
-  has_many :group, through: :group_calendars
+  has_many :groups, through: :group_calendars
 
   has_many :comments
   has_many :favorites
+
+  has_many :permits
 
   def follow(user)
     relationships.create(followed_id: user.id)

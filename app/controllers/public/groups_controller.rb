@@ -14,8 +14,13 @@ class Public::GroupsController < ApplicationController
   end
 
   def index
-    user = User.find(current_user.id)
+    @user = User.find(current_user.id)
     @groups = Group.all
+  end
+
+  def permits 
+    @group = Group.find(params[:id])
+    @permits = @group.permits
   end
 
   def show
