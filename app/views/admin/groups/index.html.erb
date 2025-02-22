@@ -4,13 +4,6 @@
             <h2>Group一覧</h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col-9">
-            <p class="text-md-right"><%= link_to "グループ作成", new_group_path %><p>
-        </div>
-        <div class="col-3">
-        </div>
-    </div>
     <%= render "public/searches/search_group" %>
     
     <table class="table">
@@ -33,7 +26,7 @@
                         <% end %>
                     </td>
                     <td>
-                        <%= link_to group_path(group) do %>
+                        <%= link_to admin_group_path(group) do %>
                             <%= group.name %>
                         <% end %>
                     </td>
@@ -41,18 +34,7 @@
                         <p><%= group.member_count(group.group_users.count)  %></p>
                     </td>
                     <td>
-                        <% if group.owner_id == current_user.id %>
-                            <%= link_to "編集", edit_group_path(group) %>
-                            <%= link_to "削除", group_path(group), method: :delete %>
-                        <% else %>
-                            <% if group.group_users.exists?(user_id: current_user.id) %>
-                                <%= link_to "グループ退出", group_group_users_path(group.id), method: :delete %>
-                            <% elsif group.permits.exists?(user_id: current_user.id) %>
-                                <%= link_to "グループ申請取消", group_permits_path(group.id), method: :delete %>
-                            <% else %>
-                                <%= link_to "グループ申請", group_permits_path(group.id), method: :post %>
-                            <% end %>
-                        <% end %>
+                        <%= link_to "削除", group_path(group), method: :delete %>
                     </td>
                 </tr>
             <% end %>

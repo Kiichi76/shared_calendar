@@ -1,0 +1,2 @@
+module Admin::GroupCalendarsHelper
+end

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>タイトル</p>
+        </div>
+        <div class="col">
+            <p><%= @calendar.title %></p>
+        </div>
+        <div class="col">
+            <p>内容</p>
+        </div>
+        <div class="col">
+            <p><%= @calendar.body %></p>
+        </div>
+        <div class="col">
+            <p>日にち</p>
+        </div>
+        <div class="col">
+            <p><%= @calendar.start_time.day %></p>
+        </div>
+        <div class="col">
+            <p>時間</p>
+        </div>
+        <div class="col">
+            <p><%= @calendar.start_time.strftime( "%H:%M" ) %></p>
+        </div>
+        <div class="col">
+            <%= link_to "削除", group_calendar_path(@calendar), method: :delete %>
+        </div>
+    </div>
+    <%= @calendar.favorites.count %>
+    <% @calendar.comments.each do |comment| %>
+        <%= comment.comment %>
+        <%= link_to "削除", admin_group_calendar_comments_path(comment), method: :delete %>
+    <% end %>
+</div>

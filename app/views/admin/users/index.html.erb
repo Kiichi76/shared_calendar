@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>名前</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+            <tr>
+                <td>
+                    <% if user.profile_image.attached? %>
+                        <%= image_tag user.profile_image, size: "120x120" %>
+                    <% else %>
+                        <%= image_tag "no_image", size: "120x120" %>
+                    <% end %>
+                </td>
+                <td>
+                    <%= link_to admin_user_path(user) do %>
+                        <%= user.handle %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

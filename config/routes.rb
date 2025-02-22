@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  namespace :admin do
+    get 'group_calendars/show'
+  end
+  devise_for :admin, controllers: {
+    registrations: "admin/registrations",
+    sessions: "admin/sessions"
+  }
   devise_for :users, controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
@@ -31,5 +37,15 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :users, only: [:index, :show, :destroy] do 
+      resource :relationships
+        get "followings" => "relationships#followings", as: "followings"
+        get "followers" => "relationships#followers", as: "followers"
+    end
+    resources :groups, only: [:index, :show, :destroy] 
+    resources :group_calendars, only: [:show, :destroy] do
+      resource :comments, only: [:destroy]
+    end
+
   end
 end
