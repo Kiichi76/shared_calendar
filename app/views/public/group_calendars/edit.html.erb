@@ -1,19 +1,40 @@
 <div class="container">
-    <%= form_with model: @calendar, url: group_group_calendar_path(@calendar), method: :patch do |f| %>
-        <div class="form-group">
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+    <div class="row">
+        <div class="col">
+            <h2>予定編集画面</h2>
         </div>
-        <div class="form-group">
-            <%= f.label :body %>
-            <%= f.text_area :body %>
+    </div>
+    <%= form_with model: @calendar, url: group_calendar_path(@calendar), method: :patch do |f| %>
+        <div class="form-group row">
+            <div class="col-md-2">
+            </div>
+            <%= f.label :title, "タイトル", class: "col-md-3 col-lg-2 col-form-label" %>
+            <div class="col-md-7 col-lg-8">
+                <%= f.text_field :title %>
+            </div>
         </div>
-        <div class="form-group">
-            <%= f.label :start_time %>
-            <%= f.datetime_select :start_time %>
+        <div class="form-group row">
+            <div class="col-md-2">
+            </div>
+            <%= f.label :body, "内容", class: "col-md-3 col-lg-2 col-form-label" %>
+            <div class="col-md-7 col-lg-8">
+                <%= f.text_area :body %>
+            </div>
         </div>
-        <div class="form-group">
-            <%= f.submit "更新" %>
+        <div class="form-group row">
+            <div class="col-md-2">
+            </div>
+            <%= f.label :start_time, "予定日", class: "col-md-3 col-lg-2 col-form-label" %>
+            <div class="col-md-7 col-lg-8">
+                <%= f.datetime_select :start_time %>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+            </div>
+            <div class="col-9">
+                <%= f.submit "更新" %>
+            </div>
         </div>
     <% end %>
 </div>

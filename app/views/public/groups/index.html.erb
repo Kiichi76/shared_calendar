@@ -3,15 +3,18 @@
         <div class="col">
             <h2>Group一覧</h2>
         </div>
+        <%= render "public/searches/search_group" %>
     </div>
+    </br>
+    
     <div class="row">
-        <div class="col-9">
+        <div class="col-10">
             <p class="text-md-right"><%= link_to "グループ作成", new_group_path %><p>
         </div>
-        <div class="col-3">
+        <div class="col-2">
         </div>
     </div>
-    <%= render "public/searches/search_group" %>
+    
     
     <table class="table">
         <thead>
