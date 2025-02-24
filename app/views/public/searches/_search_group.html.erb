@@ -1,5 +1,5 @@
 <%= form_with url: search_group_path, local: true, method: :get do |f| %>
-    <div class="form-group text-center">
+    <div class="form-group">
         <%= f.text_field :word %>
         <%= f.select :range, options_for_select([["グループID"],["グループ名"]]) %>
         <%= f.submit "検索" %>

@@ -1,43 +1,50 @@
-<% if admin_signed_in? %>
-    <% if request.fullpath.include? "/admin" %>
-    <% else %>
-        <li>
-            <%= link_to "about", about_path %>
-        </li>
-        <li>
-            <%= link_to "マイページ", user_path(current_user.id) %>
-        </li>
-        <li>
-            <%= link_to "カレンダー", personal_calendars_path %>
-        </li>
-        <li>
-            <%= link_to "グループ", groups_path %>
-        </li>
-        <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
-        </li>
-    <% end %>
-<% elsif user_signed_in? %>
-    <li>
-        <%= link_to "about", about_path %>
-    </li>
-    <li>
-        <%= link_to "マイページ", user_path(current_user.id) %>
-    </li>
-    <li>
-        <%= link_to "カレンダー", personal_calendars_path %>
-    </li>
-    <li>
-        <%= link_to "グループ", groups_path %>
-    </li>
-    <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
-    </li>
-<% else %>
-    <li>
-        <%= link_to "トップページ", root_path %>
-    </li>
-    <li>
-        <%= link_to "about", about_path %>
-    </li>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container">
+        <% if admin_signed_in? %>
+            <%= link_to "共有カレンダー", admin_session_path, class: "navbar-brand p-3" %>
+        <% else %>
+            <%= link_to "共有カレンダー", root_path, class: "navbar-brand p-3" %>
+        <% end %>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <% if admin_signed_in? %>
+                    <li class="nav-item">
+                        <%= link_to "ユーザー 一覧", admin_users_path, class: "nav-link text-dark" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "グループ一覧", admin_groups_path, class: "nav-link text-dark" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %> 
+                    </li>
+                <% elsif user_signed_in? %>
+                    <li class="nav-item">
+                        <%= link_to "about", about_path, class: "nav-link text-dark" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-dark" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "マイカレンダー", personal_calendars_path, class: "nav-link text-dark" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "グループ", groups_path, class: "nav-link text-dark" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark" %> 
+                    </li>
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to "トップページ", root_path, class: "nav-link text-dark" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "about", about_path, class: "nav-link text-dark" %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</nav>

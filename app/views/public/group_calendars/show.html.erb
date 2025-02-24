@@ -1,57 +1,94 @@
 <div class="container">
     <div class="row">
-        <div class="col">
-            <p>タイトル</p>
-        </div>
-        <div class="col">
-            <p><%= @calendar.title %></p>
-        </div>
-        <div class="col">
-            <p>内容</p>
-        </div>
-        <div class="col">
-            <p><%= @calendar.body %></p>
-        </div>
-        <div class="col">
-            <p>日にち</p>
-        </div>
-        <div class="col">
-            <p><%= @calendar.start_time.day %></p>
-        </div>
-        <div class="col">
-            <p>時間</p>
-        </div>
-        <div class="col">
-            <p><%= @calendar.start_time.strftime( "%H:%M" ) %></p>
+        <div class="col-12 col-md-6">
+            <h2>予定詳細</h2>
         </div>
         <% if @calendar.group.owner_id == @calendar.user_id %>
-            <div class="col">
-                <%= link_to "編集", edit_group_calendar_path %>
-            </div>
-            <div class="col">
-                <%= link_to "削除", group_calendar_path(@calendar), method: :delete %>
+            <div class="dropdown col-12 col-md-6">
+                <a class="btn btn-secondary dropdown-toggle", role="button", data-bs-toggle="dropdown", aria-expanded="false">
+                    menu
+                </a>
+                <ul class="dropdown-menu">
+                    <li><%= link_to "編集", edit_group_calendar_path(@calendar), class: "dropdown-item" %></li>
+                    <li><%= link_to "削除", group_calendar_path(@calendar), method: :delete, class: "dropdown-item" %></li>
+                </ul>
             </div>
         <% end %>
     </div>
-    <% if @calendar.favorited_by?(current_user) %>
-        <%= link_to group_calendar_favorites_path(@calendar), method: :delete do %>
-            ♥<%= @calendar.favorites.count %>いいね
-        <% end %>
-    <% else %>
-        <%= link_to group_calendar_favorites_path(@calendar), method: :post do %>
-            ♡<%= @calendar.favorites.count %>いいね
-        <% end %>
-    <% end %>
-    <% @calendar.comments.each do |comment| %>
-        <%= comment.comment %>
-        <% if comment.user_id == current_user.id %>
-            <%= link_to "削除", group_calendar_comment_path(comment), method: :delete %>
-        <% end %>
-    <% end %>
-    <%= form_with model: [@calendar, @comment] do |f| %>
-        <%= f.label :comment %>
-        <%= f.text_field :comment %>
+    <div class="row">
+        <div class="col-md-3 col-lg-2">
+            <p>タイトル</p>
+        </div>
+        <div class="col-md-9 col-lg-10">
+            <p><%= @calendar.title %></p>
+        </div>
 
-        <%= f.submit "投稿" %>
+        <div class="col-md-3 col-lg-2">
+            <p>内容</p>
+        </div>
+        <div class="col-md-9 col-lg-10">
+            <p><%= @calendar.body %></p>
+        </div>
+        <div class="col-md-3 col-lg-2">
+            <p>日にち</p>
+        </div>
+        <div class="col-md-9 col-lg-10">
+            <p><%= @calendar.start_time.day %>日</p>
+        </div>
+        <div class="col-md-3 col-lg-2">
+            <p>時間</p>
+        </div>
+        <div class="col-md-9 col-lg-10">
+            <p><%= @calendar.start_time.strftime( "%H:%M" ) %></p>
+        </div>
+        <div class="col-md-3 col-lg-2">
+            <p>いいね数</p>
+        </div>
+        <div class="col-md-9 col-lg-10">
+            <% if @calendar.favorited_by?(current_user) %>
+                <%= link_to group_calendar_favorites_path(@calendar), method: :delete do %>
+                    ♥<%= @calendar.favorites.count %>
+                <% end %>
+            <% else %>
+                <%= link_to group_calendar_favorites_path(@calendar), method: :post do %>
+                    ♡<%= @calendar.favorites.count %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    
+    <%= form_with model: [@calendar, @comment] do |f| %>
+        <div class="form-group">
+            <div class="col-12">
+                <%= f.text_field :comment, placeholder: "コメントを入力" %>
+                <%= f.submit "投稿" %>
+            </div>
+        </div>
     <% end %>
+    
+    <div class="row">
+        <div class="col-4 col-md-2">
+            <p>ユーザー名</p>
+        </div>
+        <div class="col-8 col-md-10">
+            <p>コメント</p>
+        </div>
+    </div>
+    <div class="row">
+        <% @calendar.comments.each do |comment| %>
+            <div class="col-4 col-md-2">
+                <h6><%= comment.user.name %></h6>
+            </div>
+            <div class="col-8 col-md-3">
+                <p><%= comment.comment %></p>
+            </div>
+            <div class="col-4 col-md-1">
+            </div>
+            <div class="col-8 col-md-6">
+                <% if comment.user_id == current_user.id %>
+                    <p><%= link_to "削除", group_calendar_comment_path(comment), method: :delete %></p>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
 </div>

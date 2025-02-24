@@ -1,7 +1,11 @@
 <div class="container">
-    <%= @group.name %>
-    <div class="col">
-        <%= link_to "グループ申請確認", permits_group_path(@group) %>
+    <div class="row">
+        <div class="col-12">
+            <h2><%= @group.name %></h2>
+        </div>
+        <div class="col-12">
+            <p class="text-right"><%= link_to "グループ申請確認", permits_group_path(@group) %></p>
+        </div>
     </div>
     <div class="row">
         <div class="col">
@@ -45,23 +49,42 @@
             <% end %>
         </div>
     </div>
+    </br>
     <%= form_with model: @calendar, url: group_calendars_path, method: :post do |f| %>
-        <div class="form-group">
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+        <% if @calendar.errors.any? %>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>エラーが発生しました</h4>
+                </div>
+                <div class="col-md-12">
+                    <ul>
+                        <% @calendar.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        <% end %>
+        <div class="form-group row">
+            <%= f.label :title, "タイトル", class: "col-md-3" %>
+            <div class="col-md-9">
+                <%= f.text_field :title %>
+            </div>
         </div>
-        <div class="form-group">
-            <%= f.label :body %>
-            <%= f.text_area :body %>
+        <div class="form-group row">
+            <%= f.label :body, "内容", class: "col-md-3" %>
+            <div class="col-md-9">
+                <%= f.text_area :body %>
+            </div>
         </div>
-        <div class="form-group">
-            <%= f.label :start_time %>
-            <%= f.datetime_select :start_time %>
-        </div>
-        <%= f.hidden_field :group_id, value: @group.id %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <div class="form-gorup">
-            <%= f.submit "追加" %>
+        <div class="form-group row">
+            <%= f.hidden_field :group_id, value: @group.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.label :start_time, "予定日", class: "col-md-3" %>
+            <div class="col-md-9">
+                <%= f.datetime_select :start_time %>
+                <%= f.submit "追加" %>
+            </div>      
         </div>
     <% end %>
     <%= month_calendar events: @calendars do |date, events| %>  
