@@ -1,8 +1,5 @@
 <div class="container">
     <%= @group.name %>
-    <div class="col">
-        <%= link_to "グループ申請確認", permits_group_path(@group) %>
-    </div>
     <div class="row">
         <div class="col">
         </div>
@@ -39,36 +36,14 @@
             <p><%= @group.group_owner(@group.owner_id) %></p>
         </div>
         <div class="col">
-            <% if @group.owner_id == current_user.id %>
-                <%= link_to "編集", edit_group_path %>
-                <%= link_to "削除", group_path(@group), method: :delete %>
-            <% end %>
+            <%= link_to "削除", group_path(@group), method: :delete %>
         </div>
     </div>
-    <%= form_with model: @calendar, url: group_calendars_path, method: :post do |f| %>
-        <div class="form-group">
-            <%= f.label :title %>
-            <%= f.text_field :title %>
-        </div>
-        <div class="form-group">
-            <%= f.label :body %>
-            <%= f.text_area :body %>
-        </div>
-        <div class="form-group">
-            <%= f.label :start_time %>
-            <%= f.datetime_select :start_time %>
-        </div>
-        <%= f.hidden_field :group_id, value: @group.id %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <div class="form-gorup">
-            <%= f.submit "追加" %>
-        </div>
-    <% end %>
     <%= month_calendar events: @calendars do |date, events| %>  
         <%= date.day %>
                             
         <% events.each do |event| %>
-            <%= link_to event.title,  group_calendar_path(event) %>
+            <%= link_to event.title, admin_group_calendar_path(event) %>
         <% end %>
     <% end %>
 </div>
