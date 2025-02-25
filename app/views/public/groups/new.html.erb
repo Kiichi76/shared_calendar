@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
+    <div class="row" style="height: 90px;">
         <div class="col">
-            <h2>グループ作成</h2>
+            <h2 style="line-height: 90px;">グループ作成</h2>
         </div>
     </div>
     <%= form_with model: @group, url: groups_path, method: :post do |f| %>
@@ -27,7 +27,7 @@
             <div class="col-3">
             </div>
             <div class="col-9">
-            <%= f.submit "作成" %>
+            <%= f.submit "作成", class: "btn btn-outline-success" %>
         </div>
     <% end %>
 </div>

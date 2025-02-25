@@ -1,7 +1,7 @@
 <div class="container">
-	<div class="row">
+	<div class="row" style="height: 90px;">
 		<div class="col">
-			<p><%= @user.name %>さんがフォローしている人</p>
+			<h5 style="line-height: 90px;"><%= @user.name %>さんがフォローしている人</h5>
 		</div>
 	</div>
 	<% if @users.exists? %>

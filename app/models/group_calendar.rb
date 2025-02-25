@@ -1,8 +1,8 @@
 class GroupCalendar < ApplicationRecord
     belongs_to :user
     belongs_to :group
-    has_many :comments
-    has_many :favorites
+    has_many :comments, dependent: :destroy
+    has_many :favorites, dependent: :destroy
 
     validates :title, presence: true
 

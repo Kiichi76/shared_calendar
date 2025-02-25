@@ -20,3 +20,9 @@ module SharedCalender
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+module FreemarketSample65d
+  class Application < Rails::Application
+    #以下を追加
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+  end
+end

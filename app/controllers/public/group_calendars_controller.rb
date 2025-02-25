@@ -1,4 +1,6 @@
 class Public::GroupCalendarsController < ApplicationController
+    before_action :authenticate_user!
+    
     def show
         @calendar = GroupCalendar.find(params[:id])
         @comment = Comment.new

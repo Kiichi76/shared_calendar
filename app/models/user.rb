@@ -14,16 +14,16 @@ class User < ApplicationRecord
   has_many :relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
 
-  has_many :group_users
+  has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
 
-  has_many :group_calendars
+  has_many :group_calendars, dependent: :destroy
   has_many :groups, through: :group_calendars
 
-  has_many :comments
-  has_many :favorites
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
-  has_many :permits
+  has_many :permits, dependent: :destroy
 
   def follow(user)
     relationships.create(followed_id: user.id)

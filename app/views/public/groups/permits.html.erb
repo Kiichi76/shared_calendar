@@ -1,18 +1,40 @@
-<table>
-    <thead>
-        <tr>
-            <th>名前</th>
-            <th></th>
-        <tr>
-    </thead>
-    <tbody>
-        <% @permits.each do |permit| %>
+<div class="container">
+    <div class="row" style="height: 90px;">
+        <div class="col">
+            <h2 style="line-height: 90px;">グループ申請一覧</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="text-right"><%= link_to "グループ画面に戻る", group_path(@group), class: "btn btn-outline-success" %></p>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
             <tr>
-                <td><%= link_to user_path(permit.user.id) %></td>
-                <td>
-                    <%= link_to "加入許可", group_group_users_path(@group.id, permit_id: permit.id), method: :post %>
-                </td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+                <th class="col-1"></th>
+                <th class="col-3">プロフィール画像</th>
+                <th class="col-3">名前</th>
+                <th class="col-5"></th>
+            <tr>
+        </thead>
+        <tbody>
+            <% @permits.each do |permit| %>
+                <tr>
+                    <td>
+                        <% if @user.profile_image.attached? %>
+                            <%= image_tag @user.profile_image, size: "120x120" %>
+                        <% else %>
+                            <%= image_tag "no_image", size: "120x120" %>
+                        <% end %>
+                    </td>
+                    <td><%= link_to user_path(permit.user.id) %></td>
+                    <td>
+                        <%= link_to "加入許可", group_group_users_path(@group.id, permit_id: permit.id), method: :post, class: "btn btn-outline-success" %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

@@ -1,4 +1,5 @@
 class Admin::GroupCalendarsController < ApplicationController
+  before_action :authenticate_admin!
   def show
     @calendar = GroupCalendar.find(params[:id])
   end

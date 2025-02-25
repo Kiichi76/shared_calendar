@@ -1,10 +1,7 @@
 <div class="container">
-    <div class="row">
+    <div class="row" style="height: 90px;">
         <div class="col-12">
-            <h2>Group一覧</h2>
-        </div>
-        <div class="col-12 text-md-right">
-            <%= render "public/searches/search_group" %>
+            <h2 style="line-height: 90px;">グループ一覧</h2>
         </div>
     </div>
 
@@ -38,7 +35,7 @@
                         <p><%= group.member_count(group.group_users.count)  %></p>
                     </td>
                     <td>
-                        <%= link_to "削除", admin_group_path(group), method: :delete %>
+                        <%= link_to "削除", admin_group_path(group), method: :delete, class: "btn btn-outline-success"%>
                     </td>
                 </tr>
             <% end %>

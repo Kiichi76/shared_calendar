@@ -14,11 +14,14 @@
 
   </head>
 
-  <body class="d-flex flex-column vh-100 bg-light">
+  <body>
     <header class="shadow-sm">
       <%= render "/layouts/header" %>
     </header>
     </br>
-    <%= yield %>
+      <%= yield %>
+    <footer>
+      <%= render "/layouts/footer" %>
+    </footer>
   </body>
 </html>

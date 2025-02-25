@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
+    <div class="row" style="height: 90px;">
         <div class="col">
-            <h2>予定編集画面</h2>
+            <h2 style="line-height: 90px;">予定編集画面</h2>
         </div>
     </div>
     <%= form_with model: @calendar, url: group_calendar_path(@calendar), method: :patch do |f| %>
@@ -33,7 +33,7 @@
             <div class="col-3">
             </div>
             <div class="col-9">
-                <%= f.submit "更新" %>
+                <%= f.submit "更新", class: "btn btn-outline-success" %>
             </div>
         </div>
     <% end %>
