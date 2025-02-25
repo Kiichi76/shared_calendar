@@ -53,24 +53,24 @@ ActiveRecord::Schema.define(version: 2025_02_20_052434) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "group_calendar_id"
-    t.integer "user_id"
-    t.string "comment"
+    t.integer "group_calendar_id", null: false
+    t.integer "user_id", null: false
+    t.string "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_calendar_id"
+    t.integer "user_id", null: false
+    t.integer "group_calendar_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "group_calendars", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
-    t.string "title"
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
+    t.string "title", null: false
     t.text "body"
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
@@ -86,20 +86,20 @@ ActiveRecord::Schema.define(version: 2025_02_20_052434) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "owner_id"
+    t.integer "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "permits", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "personal_calendars", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.string "title", null: false
     t.text "body"
     t.datetime "start_time"

@@ -1,42 +1,42 @@
 <div class="container">
-    <%= @group.name %>
     <div class="row">
-        <div class="col">
+        <div class="col-12">
+            <h2><%= @group.name %><h2>
         </div>
-        <div class="col">
-            <p>グループ名</p>
+        <div class="col-3">
+            <p>グループ画像</p>
         </div>
-        <div class="col">
-            <p>メンバー</p>
-        </div>
-        <div class="col">
-            <p>グループ管理者</p>
-        </div>
-        <div class="col">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
+        <div class="col-9">
             <% if @group.group_image.attached? %>
                 <%= image_tag @group.group_image, size:"50x50" %>
             <% else %>
                 <%= image_tag "no_image", size:"50x50" %>
             <% end %>
         </div>
-        <div class="col">
+        <div class="col-3">
+            <p>グループ名</p>
+        </div>
+        <div class="col-9">
             <p><%= @group.name %></p>
         </div>
-        <div class="col">
+        <div class="col-3">
+            <p>メンバー</p>
+        </div>
+        <div class="col-9">
             <% @group.group_users.each do |member| %>
                     <%= member.members(member.user_id) %>
             <% end %>
             <%= @group.group_owner(@group.owner_id) %>
         </div>
-        <div class="col">
-            <p><%= @group.group_owner(@group.owner_id) %></p>
+        <div class="col-3">
+            <p>グループ管理者</p>
         </div>
-        <div class="col">
-            <%= link_to "削除", group_path(@group), method: :delete %>
+        <div class="col-4">
+            <p><%= @group.group_owner(@group.owner_id) %></p>
+        </div>  
+        
+        <div class="col-5">
+            <%= link_to "グループ削除", group_path(@group), method: :delete %>
         </div>
     </div>
     <%= month_calendar events: @calendars do |date, events| %>  

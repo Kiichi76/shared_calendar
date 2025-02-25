@@ -1,36 +1,59 @@
 <div class="container">
     <div class="row">
-        <div class="col">
-            <p>タイトル</p>
-        </div>
-        <div class="col">
-            <p><%= @calendar.title %></p>
-        </div>
-        <div class="col">
-            <p>内容</p>
-        </div>
-        <div class="col">
-            <p><%= @calendar.body %></p>
-        </div>
-        <div class="col">
-            <p>日にち</p>
-        </div>
-        <div class="col">
-            <p><%= @calendar.start_time.day %></p>
-        </div>
-        <div class="col">
-            <p>時間</p>
-        </div>
-        <div class="col">
-            <p><%= @calendar.start_time.strftime( "%H:%M" ) %></p>
-        </div>
-        <div class="col">
-            <%= link_to "削除", group_calendar_path(@calendar), method: :delete %>
+        <div class="col-12">
+            <h2>予定詳細</h2>
         </div>
     </div>
-    <%= @calendar.favorites.count %>
-    <% @calendar.comments.each do |comment| %>
-        <%= comment.comment %>
-        <%= link_to "削除", admin_group_calendar_comments_path(comment), method: :delete %>
-    <% end %>
+    </br>
+    <div class="row">
+        <div class="col-3">
+            <p>タイトル</p>
+        </div>
+        <div class="col-9">
+            <p><%= @calendar.title %></p>
+        </div>
+        <div class="col-3">
+            <p>内容</p>
+        </div>
+        <div class="col-9">
+            <p><%= @calendar.body %></p>
+        </div>
+        <div class="col-3">
+            <p>日にち</p>
+        </div>
+        <div class="col-9">
+            <p><%= @calendar.start_time.day %></p>
+        </div>
+        <div class="col-3">
+            <p>時間</p>
+        </div>
+        <div class="col-9">
+            <p><%= @calendar.start_time.strftime( "%H:%M" ) %></p>
+        </div>
+        <div class="col-3">
+            <p>いいね数</p>
+        </div>
+        <div class="col-4">
+            <%= @calendar.favorites.count %>
+        </div>
+        <div class="col-5">
+            <%= link_to "予定削除", admin_group_calendar_path(@calendar), method: :delete %>
+        </div>
+    </div>
+    
+    <div class="row">
+        <% @calendar.comments.each do |comment| %>
+            <div class="col-4 col-md-2">
+                <h6><%= comment.user.name %></h6>
+            </div>
+            <div class="col-8 col-md-3">
+                <p><%= comment.comment %></p>
+            </div>
+            <div class="col-4 col-md-1">
+            </div>
+            <div class="col-8 col-md-6">
+                <%= link_to "削除", admin_group_calendar_comment_path(@calendar, comment), method: :delete %>
+            </div>
+        <% end %>
+    </div>
 </div>
