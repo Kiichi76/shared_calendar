@@ -6,7 +6,7 @@
 	</div>
 	<% if @users.exists? %>
 		<div class="row">
-			<%= render "/relationships/index", users: @users %>
+			<%= render "public/relationships/index", users: @users %>
 		</div>
 	<% else %>
 		<div class="row">
