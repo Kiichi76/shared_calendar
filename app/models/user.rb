@@ -36,6 +36,10 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  def followers?(user)
+    followers.include?(user)
+  end
+
   def self.looks(range, word)
     if range == "ユーザーID"
       @user = User.where(id: word.to_i)
