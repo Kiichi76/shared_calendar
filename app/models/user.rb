@@ -25,11 +25,11 @@ class User < ApplicationRecord
   has_many :permits, dependent: :destroy
 
   def follow(user)
-    relationships.create(followed_id: user.id)
+    active_relationships.create(followed_id: user.id)
   end
   
   def unfollow(user)
-    relationships.find_by(followed_id: user.id).destroy
+    active_relationships.find_by(followed_id: user.id).destroy
   end
   
   def following?(user)
