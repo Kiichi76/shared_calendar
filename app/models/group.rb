@@ -21,8 +21,5 @@ class Group < ApplicationRecord
     count + 1
   end
   
-  def group_owner(id)
-    user = User.find(id)
-    user.handle
-  end
+  
 end

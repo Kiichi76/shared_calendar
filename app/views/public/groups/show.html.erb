@@ -39,10 +39,6 @@
             <% @group.group_users.each do |member| %>
                     <%= member.members(member.user_id) %>
             <% end %>
-            <%= @group.group_owner(@group.owner_id) %>
-        </div>
-        <div class="col">
-            <p><%= @group.group_owner(@group.owner_id) %></p>
         </div>
         <div class="col">
             <% if @group.owner_id == current_user.id %>
