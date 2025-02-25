@@ -24,7 +24,7 @@
                 <tr>
                     <td>
                         <% if @user.profile_image.attached? %>
-                            <%= image_tag @user.profile_image, size: "120x120" %>
+                            <%= image_tag @user.profile_image,  size: "120x120" %>
                         <% else %>
                             <%= image_tag "no_image.jpg", size: "120x120" %>
                         <% end %>
