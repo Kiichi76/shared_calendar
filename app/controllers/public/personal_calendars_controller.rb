@@ -14,6 +14,7 @@ class Public::PersonalCalendarsController < ApplicationController
         if @calendar.save
             redirect_to request.referer
         else
+            @calendars = user.personal_calendars
             render :index
         end
     end

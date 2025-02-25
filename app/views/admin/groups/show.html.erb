@@ -24,18 +24,11 @@
         <div class="col-3">
             <p>メンバー</p>
         </div>
-        <div class="col-9">
+        <div class="col-4">
             <% @group.group_users.each do |member| %>
                     <%= member.members(member.user_id) %>
             <% end %>
-            <%= @group.group_owner(@group.owner_id) %>
         </div>
-        <div class="col-3">
-            <p>グループ管理者</p>
-        </div>
-        <div class="col-4">
-            <p><%= @group.group_owner(@group.owner_id) %></p>
-        </div>  
         
         <div class="col-5">
             <%= link_to "グループ削除", group_path(@group), method: :delete, class: "btn btn-outline-success" %>

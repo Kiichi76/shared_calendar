@@ -34,6 +34,9 @@
                         <%= link_to "グループ", groups_path, class: "nav-link text-dark" %>
                     </li>
                     <li class="nav-item">
+                        <%= link_to "ユーザー検索", search_user_path, class: "nav-link text-dark" %>
+                    </li>
+                    <li class="nav-item">
                         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark" %> 
                     </li>
                 <% else %>
