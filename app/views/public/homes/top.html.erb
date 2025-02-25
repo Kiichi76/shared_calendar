@@ -1,19 +1,25 @@
 <div class="container text-center">
-    <div class="row">
+    <div class="row"  style="height: 80px;">
         <div class="col-11">
-            <h2>共有カレンダー</h2>
+            <h2 style="line-height: 80px;">共有カレンダー</h2>
         </div>
-        <div class="col-6">
-            <p>ユーザー登録</p>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-12" style="height: 80px;">
+            <h5 style="line-height: 80px;">ユーザー登録してない方はこちらから</h5>
         </div>
-        <div class="col-6">
-            <%= link_to "登録する", new_user_registration_path %>
+        <div class="col-12" style="height: 70px;">
+            <p style="line-height: 70px;"><%= link_to "登録する", new_user_registration_path, class: "btn btn-outline-success" %></p>
         </div>
-        <div class="col-6">
-            <p>ログインする</p>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-12" style="line-height: 80px;">
+            <h5 style="line-height: 80px;">アカウントをお持ちの方はこちらから</h5>
         </div>
-        <div class="col-6">
-            <%= link_to "ログインする", new_user_session_path %>
+        <div class="col-12" style="line-height: 80px;">
+            <p style="line-height: 80px;"><%= link_to "ログインする", new_user_session_path, class: "btn btn-outline-success" %></p>
         </div>
     </div>
 </div>

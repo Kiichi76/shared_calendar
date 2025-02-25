@@ -1,4 +1,10 @@
 <div class="container">
+    <div class="row" style="height: 90px;">
+        <div class="col">
+            <h2 style="line-height: 90px;">予定編集</h2>
+        </div>
+    </div>
+    </br>
     <%= form_with model: @calendar, url: personal_calendar_path(@calendar), method: :patch do |f| %>
         <% if @calendar.errors.any? %>
             <h4>エラーが発生しました</h4>
@@ -12,7 +18,7 @@
         <div class="form-group row">
 			<div class="col-md-2">
 			</div>
-            <%= f.label :title, class: "col-md-3 col-lg-2 col-form-label" %>
+            <%= f.label :title, "タイトル", class: "col-md-3 col-lg-2 col-form-label" %>
 			<div class="col-md-7 col-lg-8">
                 <%= f.text_field :title %>
             </div>
@@ -20,7 +26,7 @@
         <div class="form-group row">
             <div class="col-md-2">
             </div>
-            <%= f.label :body, class: "col-md-3 col-lg-2 col-form-label" %>
+            <%= f.label :body, "内容", class: "col-md-3 col-lg-2 col-form-label" %>
 			<div class="col-md-7 col-lg-8">
                 <%= f.text_area :body %>
             </div>
@@ -28,7 +34,7 @@
         <div class="form-group row">
             <div class="col-md-2">
             </div>
-            <%= f.label :start_time, class: "col-md-3 col-lg-2 col-form-label" %>
+            <%= f.label :start_time, "予定日", class: "col-md-3 col-lg-2 col-form-label" %>
             <div class="col-md-7 col-lg-8">
                 <%= f.datetime_select :start_time %>
             </div>
@@ -37,7 +43,7 @@
 			<div class="col-3">
 			</div>
 			<div class="col-9">
-                <%= f.submit "変更" %>
+                <%= f.submit "変更", class: "btn btn-outline-success"%>
             </div>
         </div>
     <% end %>

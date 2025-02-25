@@ -1,8 +1,10 @@
 <div class="container">
-    <div class="row">
+    <div class="row" style="height: 90px;">
         <div class="col-12">
-            <h2><%= @group.name %><h2>
+            <h2 style="line-height: 90px;"><%= @group.name %><h2>
         </div>
+    </div>
+    <div class="row">
         <div class="col-3">
             <p>グループ画像</p>
         </div>
@@ -36,7 +38,7 @@
         </div>  
         
         <div class="col-5">
-            <%= link_to "グループ削除", group_path(@group), method: :delete %>
+            <%= link_to "グループ削除", group_path(@group), method: :delete, class: "btn btn-outline-success" %>
         </div>
     </div>
     <%= month_calendar events: @calendars do |date, events| %>  

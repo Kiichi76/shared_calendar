@@ -1,5 +1,7 @@
 <%= form_with url: search_user_path, local: true, method: :get do |f| %>
-    <%= f.text_field :word %>
-    <%= f.select :range, options_for_select([["ユーザーID"],["表示名"]]) %>
-    <%= f.submit "検索" %>
+    <div class="form-group">
+        <%= f.text_field :word %>
+        <%= f.select :range, options_for_select([["ユーザーID"],["表示名"]]) %>
+        <%= f.submit "検索", class: "btn btn-outline-success" %>
+    </div>
 <% end %>

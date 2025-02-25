@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
+    <div class="row" style="height: 90px;">
         <div class="col">
-            <h2>マイカレンダー</h2>
+            <h2 style="line-height: 90px;">マイカレンダー</h2>
         </div>
     </div>
     </br>
@@ -31,7 +31,7 @@
             <%= f.label :start_time, "予定日", class: "col-md-3" %>
             <div class="col-md-9">
                 <%= f.datetime_select :start_time %>
-                <%= f.submit "作成" %>
+                <%= f.submit "作成", class: "btn btn-outline-success" %>
             </div>
         </div>
     <% end %>
