@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
 
   has_many :group_calendars, dependent: :destroy
-  has_many :groups, through: :group_calendars
+  has_many :gc_groups, class_name: "Group", through: :group_calendars
 
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy

@@ -21,7 +21,9 @@ class Public::GroupsController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    @groups = Group.all
+    join_group_ids = @user.groups.ids
+    owner_group_ids = Group.where(owner_id: @user.id).ids
+    @groups = Group.where(id: join_group_ids + owner_group_ids)
   end
 
   def permits 
