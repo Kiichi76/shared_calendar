@@ -1,23 +1,27 @@
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <h2>Group一覧</h2>
         </div>
+        <div class="col-12 text-md-right">
+            <%= render "public/searches/search_group" %>
+        </div>
     </div>
-    <%= render "public/searches/search_group" %>
-    
+
     <table class="table">
         <thead>
             <tr>
-                <th scope="col"></th>
-                <th scope="col">グループ名</th>
-                <th scope="col">メンバー数</th>
-                <th scope="col"></th>
+                <th class="col-1"></th>
+                <th class="col-3">グループ画像</th>
+                <th class="col-3">グループ名</th>
+                <th class="col-3">メンバー数</th>
+                <th class="col-2"></th>
             </tr>
         </thead>
         <tbody>
             <% @groups.each do |group| %>
                 <tr>
+                    <td></td>
                     <td>
                         <% if group.group_image.attached? %>
                             <%= image_tag group.group_image, size:"50x50" %>
@@ -34,7 +38,7 @@
                         <p><%= group.member_count(group.group_users.count)  %></p>
                     </td>
                     <td>
-                        <%= link_to "削除", group_path(group), method: :delete %>
+                        <%= link_to "削除", admin_group_path(group), method: :delete %>
                     </td>
                 </tr>
             <% end %>

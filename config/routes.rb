@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'group_calendars/show'
-  end
   devise_for :admin, controllers: {
     registrations: "admin/registrations",
     sessions: "admin/sessions"
@@ -44,7 +41,7 @@ Rails.application.routes.draw do
     end
     resources :groups, only: [:index, :show, :destroy] 
     resources :group_calendars, only: [:show, :destroy] do
-      resource :comments, only: [:destroy]
+      resources :comments, only: [:destroy]
     end
 
   end
