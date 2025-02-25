@@ -1,6 +1,6 @@
 <% users.each do |user| %>
 	<div class="col-3">
-		<% if @user.profile_image.attached? %>
+		<% if users.profile_image.attached? %>
 			<%= image_tag @user.profile_image, size: "80x80" %>
 		<% else %>
 			<%= image_tag "no_image.jpg", size: "80x80" %>
@@ -12,7 +12,7 @@
 		<% end %>
 	</div>
 	<div class="col-6">
-		<% if current_user.following?(@user) %>
+		<% if current_user.following?(user) %>
 			<%= link_to "フォロー解除", user_relationships_path(user), method: :delete, class: "btn btn-outline-success" %>
 		<% else %>
 			<%= link_to "フォロー" , user_relationships_path(user), method: :post, class: "btn btn-outline-success" %>
