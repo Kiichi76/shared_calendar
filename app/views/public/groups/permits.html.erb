@@ -21,7 +21,12 @@
         <tbody>
             <% @permits.each do |permit| %>
                 <tr>
-                    <td><%= link_to user_path(permit.user.id) %></td>
+                    <td></td>
+                    <td>
+                        <%= link_to user_path(permit.user.id) do %>
+                            <%= permit.name(permit.user.id) %>
+                        <% end %>
+                    </td>
                     <td>
                         <%= link_to "加入許可", group_group_users_path(@group.id, permit_id: permit.id), method: :post, class: "btn btn-outline-success" %>
                     </td>
