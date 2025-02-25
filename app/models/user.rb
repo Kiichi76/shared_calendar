@@ -8,11 +8,10 @@ class User < ApplicationRecord
 
   has_many :personal_calendars, dependent: :destroy
 
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :followers, through: :reverse_of_relationships, source: :follower
-
-  has_many :relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  has_many :followings, through: :relationships, source: :followed
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followings, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
