@@ -8,9 +8,10 @@
         <thead>
             <tr>
                 <th class="col-1">
-                <th class="col-4">プロフィール画像</th>
-                <th class="col-4">名前</th>
-                <th class="col-3"></th>
+                <th class="col-3">プロフィール画像</th>
+                <th class="col-3">名前</th>
+                <th class="col-3">表示名</th>
+                <th class="col-2"></th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
                             <%= image_tag "no_image.jpg", size: "80x80" %>
                         <% end %>
                     </td>
+                    <td><%= user.name %></td>
                     <td>
                         <%= link_to admin_user_path(user) do %>
                             <%= user.handle %>

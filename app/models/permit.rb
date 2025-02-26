@@ -4,6 +4,6 @@ class Permit < ApplicationRecord
 
     def name(id)
         user = User.find(id)
-        user.name
+        user.handle
     end
 end

@@ -22,6 +22,9 @@
             <p>グループ管理者</p>
         </div>
         <div class="col">
+            <p>グループID</p>
+        </div>
+        <div class="col">
         </div>
     </div>
     <div class="row">
@@ -39,6 +42,13 @@
             <% @group.group_users.each do |member| %>
                     <%= member.members(member.user_id) %>
             <% end %>
+            <%= @group.owner(@group.owner_id) %>
+        </div>
+        <div class="col">
+            <%= @group.owner(@group.owner_id) %>
+        </div>
+        <div class="col">
+            <%= @group.id %>
         </div>
         <div class="col">
             <% if @group.owner_id == current_user.id %>

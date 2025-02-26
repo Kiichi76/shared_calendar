@@ -1,6 +1,10 @@
 <% users.each do |user| %>
 	<div class="col-3">
-		<%= image_tag user.profile_image, size: "40x40" %>
+		<% if user.profile_image.attached? %>
+			<%= image_tag user.profile_image, size: "80x80" %>
+		<% else %>
+			<%= image_tag "no_image.jpg", size: "80x80" %>
+		<% end %>
 	</div>
 	<div class="col-3">
 		<%= link_to admin_user_path(user) do %>
