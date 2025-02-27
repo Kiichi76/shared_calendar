@@ -19,7 +19,7 @@ class Public::GroupCalendarsController < ApplicationController
     def update
         @calendar = GroupCalendar.find(params[:id])
         if @calendar.update(group_calendar_params)
-            redirect_to group_group_calendar_path(@calendar)
+            redirect_to group_calendar_path(@calendar)
         else
             render :edit
         end
