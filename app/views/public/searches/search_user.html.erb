@@ -32,7 +32,9 @@
                         <% end %>
                     </td>
                     <td>
-                        <p><%= user.handle %></p>
+                        <%= link_to user_path(user) do %>
+                            <%= user.handle %>
+                        <% end %>
                     </td>
                     <td>
                         <%= link_to user.followings.count, user_followings_path(user)  %>
