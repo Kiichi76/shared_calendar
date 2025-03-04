@@ -8,8 +8,15 @@ class Public::GroupCalendarsController < ApplicationController
 
     def create
         @calendar = GroupCalendar.new(group_calendar_params)
-        @calendar.save
-        redirect_to request.referer
+        tags = Vision.get_image_data(group_calendar_params[:image])
+        if @calendar.save
+            tags.each do |tag|
+                @calendar.tags.create(name: tag)
+            end
+            redirect_to request.referer
+        else
+            redirect_to request.referer
+        end
     end
 
     def edit
@@ -34,6 +41,6 @@ class Public::GroupCalendarsController < ApplicationController
     private
 
     def group_calendar_params
-        params.require(:group_calendar).permit(:title, :body, :start_time, :group_id, :user_id)
+        params.require(:group_calendar).permit(:title, :body, :start_time, :group_id, :user_id, :image)
     end
 end
