@@ -6,6 +6,25 @@
     </div>
     </br>
     <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-11">
+            <% if @calendar.image.attached? %>
+                <%= image_tag @calendar.image, size: "300x150" %>
+            <% else %>
+                <%= image_tag "no_image.jpg", size: "300x150" %>
+            <% end %>
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col-11">
+            <% @calendar.tags.each do |tag| %>
+                <span class="label"><%= tag.name %></span>
+            <% end %>
+        </div>
+    </div>
+    </br>
+    <div class="row">
         <div class="col-3">
             <p>タイトル</p>
         </div>
