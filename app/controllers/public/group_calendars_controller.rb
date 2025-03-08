@@ -8,8 +8,8 @@ class Public::GroupCalendarsController < ApplicationController
 
     def create
         @calendar = GroupCalendar.new(group_calendar_params)
-        tags = Vision.get_image_data(group_calendar_params[:image])
         if @calendar.save
+            tags = Vision.get_image_data(group_calendar_params[:image])
             tags.each do |tag|
                 @calendar.tags.create(name: tag)
             end

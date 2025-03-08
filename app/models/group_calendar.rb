@@ -9,6 +9,8 @@ class GroupCalendar < ApplicationRecord
 
     has_one_attached :image
 
+    validates :image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
+
     def favorited_by?(user)
         favorites.exists?(user_id: user.id)
     end
