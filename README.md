@@ -21,8 +21,9 @@
 ​予定などを共有したいとき
 自分だけのカレンダーを作成したいとき
 ## 設計書
-ER図 (https://app.diagrams.net/#G1kwTqCB5pX0jokaRdzwpjs3prYMYjo9YW#%7B%22pageId%22%3A%22LkA-50vI9zVlM_wPANrl%22%7D)
-アプリケーション設計書 (https://docs.google.com/spreadsheets/d/1KvlzaCYgAD_61CpH2gCacse4e1lW70i8h0Q_lqE1LeQ/edit?gid=549108681#gid=549108681)
+- ER図 (https://app.diagrams.net/#G1kwTqCB5pX0jokaRdzwpjs3prYMYjo9YW#%7B%22pageId%22%3A%22LkA-50vI9zVlM_wPANrl%22%7D)
+- アプリケーション設計書 (https://docs.google.com/spreadsheets/d/1KvlzaCYgAD_61CpH2gCacse4e1lW70i8h0Q_lqE1LeQ/edit?gid=549108681#gid=549108681)
+- テーブル定義書（https://docs.google.com/spreadsheets/d/1Gqwl2JkPuN7Lrstmc3eF6ze_kq5qcmljo03u9ak7WO8/edit?gid=1044500859#gid=1044500859）
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -34,10 +35,3 @@ ER図 (https://app.diagrams.net/#G1kwTqCB5pX0jokaRdzwpjs3prYMYjo9YW#%7B%22pageId
 ## 使用素材
 - Font Awesome(https://fontawesome.com/)
 - Google vision API(https://cloud.google.com/vision?hl=ja)
-<!-- - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。 -->
-<!-- - アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。 -->
-<!-- - 使用しない場合は、使用素材の項目をREADMEから削除してください。 -->
-<!-- - 架空の団体・題材を前提にポートフォリオを制作する場合、下記のテンプレートを当項目内に記載しましょう。 -->
-<!-- 【テンプレート】 -->
-<!-- 著作権を考慮し、架空のデータを扱う予定です。 -->
-<!-- なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。 -->
