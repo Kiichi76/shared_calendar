@@ -9,11 +9,7 @@
         <div class="col-1">
         </div>
         <div class="col-11">
-            <% if @calendar.image.attached? %>
-                <%= image_tag @calendar.image, size: "300x150" %>
-            <% else %>
-                <%= image_tag "no_image.jpg", size: "300x150" %>
-            <% end %>
+            <%= image_tag @calendar.image, size: "300x150" %>
         </div>
         <div class="col-1">
         </div>

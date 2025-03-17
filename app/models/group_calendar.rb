@@ -8,6 +8,7 @@ class GroupCalendar < ApplicationRecord
     has_one_attached :image
 
     validates :title, presence: true
+    validates :image, presence: true
 
     def favorited_by?(user)
         favorites.exists?(user_id: user.id)
