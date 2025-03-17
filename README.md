@@ -22,10 +22,7 @@
 自分だけのカレンダーを作成したいとき
 ## 設計書
 ER図 (https://app.diagrams.net/#G1kwTqCB5pX0jokaRdzwpjs3prYMYjo9YW#%7B%22pageId%22%3A%22LkA-50vI9zVlM_wPANrl%22%7D)
-アプリケーション設計書 ()
-<!-- 【補足説明】 -->
-<!-- - テーマ提出時点では不要です。 -->
-<!-- - 当項目には「後ほど作成予定」と記載しましょう。 -->
+アプリケーション設計書 (https://docs.google.com/spreadsheets/d/1KvlzaCYgAD_61CpH2gCacse4e1lW70i8h0Q_lqE1LeQ/edit?gid=549108681#gid=549108681)
 ​
 ## 開発環境
 - OS：Linux(CentOS)

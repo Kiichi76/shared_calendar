@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="row" style="height: 90px;">
+    <div class="row">
         <div class="col-12">
-            <h2 style="line-height: 90px;">予定詳細</h2>
+            <h2>予定詳細</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-6">
         </div>
-        <% if @calendar.group.owner_id == @calendar.user_id %>
+        <% if @calendar.group.owner_id == @calendar.user_id %> 
             <div class="dropdown col-12 col-md-6">
                 <a class="btn btn-outline-success dropdown-toggle", role="button", data-bs-toggle="dropdown", aria-expanded="false">
                     menu
@@ -24,11 +24,7 @@
         <div class="col-md-3">
         </div>
         <div class="col-md-9">
-            <% if @calendar.image.attached? %>
-                <%= image_tag @calendar.image, size: "300x150" %>
-            <% else %>
-                <%= image_tag "no_image.jpg", size: "120x150" %>
-            <% end %>
+            <%= image_tag @calendar.image, size: "300x150" %>
         </div>
 
         <div class="col-md-3">

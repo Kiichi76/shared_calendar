@@ -8,16 +8,12 @@ class Public::GroupCalendarsController < ApplicationController
 
     def create
         @calendar = GroupCalendar.new(group_calendar_params)
-        tags = []
-        if group_calendar_params[:image].present?
-            #byebug
-            tags = Vision.get_image_data(group_calendar_params[:image])
-        end
+        tags = Vision.get_image_data(group_calendar_params[:image])
         if @calendar.save
             tags.each do |tag|
-                @calendar.tags.find_or_create_by(name: tag)
+                @calendar.tags.create(name: tag)
             end
-            redirect_to request.referer
+            redirect_to group_calendar_path(@calendar)
         else
             redirect_to request.referer
         end

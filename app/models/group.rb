@@ -17,8 +17,8 @@ class Group < ApplicationRecord
     end
   end
 
-  def member_count(count)
-    count + 1
+  def member_count(member)
+    member + 1
   end
   
   def owner(id)

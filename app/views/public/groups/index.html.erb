@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row" style="height: 90px;">
+    <div class="row">
         <div class="col">
-            <h2 style="line-height: 90px;">Group一覧</h2>
+            <h2>Group一覧</h2>
         </div>
     </div>
     </br>
@@ -43,9 +43,9 @@
                         <%= link_to group_path(group) do %>
                             <%= group.name %>
                         <% end %>
-                    </td>
+                    </td> 
                     <td>
-                        <p><%= group.member_count(group.group_users.count)  %></p>
+                        <p><%= group.member_count(group.group_users.count) %></p>
                     </td>
                     <td>
                         <% if group.owner_id == current_user.id %>
