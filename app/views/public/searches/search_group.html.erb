@@ -29,7 +29,7 @@
                         <%= group.name %>
                     </td>
                     <td>
-                        <p><%= group.group_users.count %></p>
+                        <p><%= group.member_count(group.group_users.count) %></p>
                     </td>
                     <td>
                         <% if group.owner_id == current_user.id %>
