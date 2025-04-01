@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <% if admin_signed_in? %>
-            <%= link_to "共有カレンダー", admin_session_path, class: "navbar-brand p-3" %>
+            <%= link_to "Sharing", admin_session_path, class: "navbar-brand p-3" %>
         <% else %>
-            <%= link_to "共有カレンダー", root_path, class: "navbar-brand p-3" %>
+            <%= link_to "Sharing", root_path, class: "navbar-brand p-3" %>
         <% end %>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
